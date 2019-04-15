@@ -5,10 +5,12 @@ from django.contrib.auth.models import User
 class BdcclientForm(forms.ModelForm):
     class Meta:
         model = BdcClient
-        fields = ['name', 'phone', 'email']
+        fields = ['name', 'phone', 'email','bank','acct']
 
 class BdctranzactionForm(forms.ModelForm):
     class Meta:
         model = BdcTranzactions
-        fields = ['client', 'currency_sold', 'sold_amount', 'currency_bought', 'bought_amount', 'client_bank', 'client_acct', 'trans_date', 'comments']
+        fields = ['currency_sold', 'sold_amount', 'currency_bought', 'bought_amount', 'bank', 'client_acct', 'trans_date', 'comments']
 
+class TransbaseForm(forms.Form):
+    client=forms.CharField()

@@ -20,7 +20,7 @@ class BdcStaff(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bdc = models.ForeignKey(BdcProfile, on_delete=models.CASCADE)
     boss = models.BooleanField(default=False)
-    added_by = models.CharField(max_length=4, editable=False)
+    added_by = models.CharField(max_length=4, editable=False, default=1)
     added_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

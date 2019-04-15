@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+<div class="row">
+  <form enctype="multipart/form-data" method="POST">
+
+
+          {% if tmessage %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ tmessage }}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+    {% endif %}
+
+
+          {% csrf_token %}
+       <div class="form-group">
+
+          {{ form.client|as_crispy_field }}
+    </div>
+
+      <div class="form-row">
+          <div class="form-group col-6">
+
+          {{ form.currency_sold|as_crispy_field }}
+    </div>
+
+          <div class="form-group col-6">
+
+          {{ form.sold_amount|as_crispy_field }}
+    </div>
+</div>
+          <div class="form-row">
+              <div class="form-group col-6">
+
+                      {{ form.currency_bought|as_crispy_field }}
+              </div>
+
+              <div class="form-group col-6">
+
+                      {{ form.bought_amount|as_crispy_field }}
+                </div>
+        </div>
+       <div class="form-row">
+              <div class="form-group col-6">
+
+                      {{ form.bank|as_crispy_field }}
+              </div>
+
+              <div class="form-group col-6">
+
+                      {{ form.client_acct|as_crispy_field }}
+                </div>
+        </div>
+
+
+
+          <input type="submit" name="" value="Add transaction">
+        </form>
+
+</div>
+
+
+{% endblock %}

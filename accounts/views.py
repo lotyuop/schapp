@@ -43,14 +43,14 @@ def register(request):
                 profile.bdc_logo = request.FILES['bdc_logo']
             profile.save()
             registered = True
-            bdcstaff=BdcStaffForm().save(commit=False)
+            bdcstaff = BdcStaffForm().save(commit=False)
            
-            bdcstaff.user=user
-            bdcstaff.bdc=profile
-            bdcstaff.boss=True
+            bdcstaff.user = user
+            bdcstaff.bdc = profile
+            bdcstaff.boss = True
             bdcstaff.save()
         else:
-            print(user_form.errors,profile_form.errors)
+            print(user_form.errors, profile_form.errors)
     else:
         user_form = UserForm()
         profile_form = BdcProfileForm()

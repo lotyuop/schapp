@@ -21,6 +21,7 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('transactions/',include('bdctransactions.urls')),
     url(r'^$',TemplateView.as_view(template_name='index.html'),name='index'),
     url(r'^special/',views.special,name='special'),
     url(r'^accounts/',include('accounts.urls')),
